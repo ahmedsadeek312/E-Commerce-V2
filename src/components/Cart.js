@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { removeProduct } from "../Redux/productSlice";
+
 const Cart = () => {
   const dispatch = useDispatch();
   const cartProducts = useSelector((state) => state.cart.cartProducts);
   console.log(cartProducts);
+
   const handleRemove = (id) => {
     dispatch(
       removeProduct({
@@ -48,10 +50,10 @@ const Cart = () => {
               return (
                 <div className="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
                   <div className="flex w-2/5">
-                    <div className="w-20">
+                    <div className=" w-80 h-48">
                       <img
-                        className="h-24"
-                        src={product.images}
+                        className="h-36" //  h-44 w-48
+                        src={product.image}
                         alt={product.title}
                       />
                     </div>
@@ -61,7 +63,7 @@ const Cart = () => {
                         {product.description}
                       </span>
                       <div
-                        className="font-semibold hover:text-red-500 text-gray-500 text-xs cursor-pointer"
+                        className="font-semibold hover:text-red-500 text-gray-500 text-lg cursor-pointer"
                         onClick={() => handleRemove(product.id)}
                       >
                         Remove

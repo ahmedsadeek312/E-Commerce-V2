@@ -9,11 +9,10 @@ const Product = () => {
   const [product, setProduct] = useState({});
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   useEffect(() => {
     const fetchProduct_API = async () => {
-      const response = await fetch(
-        `https://api.escuelajs.co/api/v1/products/${id}`
-      );
+      const response = await fetch(`https://fakestoreapi.com/products/${id}`);
       const data = await response.json();
       console.log(data);
       setProduct(data);
@@ -42,11 +41,11 @@ const Product = () => {
           <img
             alt={product.title}
             className="lg:w-1/2 w-full lg:h-auto h-64 max-h-[450px] object-contain object-center rounded"
-            src={product.images}
+            src={product.image}
           />
           <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
             <h2 className="text-sm title-font text-gray-500 tracking-widest">
-              {product.title}
+              {product.category}
             </h2>
             <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">
               {product.title}

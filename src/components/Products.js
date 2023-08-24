@@ -6,7 +6,7 @@ const Products = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
     const fetchProducts_API = async () => {
-      const response = await fetch("https://api.escuelajs.co/api/v1/products");
+      const response = await fetch("https://fakestoreapi.com/products"); // https://fakestoreapi.com/products
       const data = await response.json();
       console.log(data);
       setProducts(data);
@@ -38,12 +38,12 @@ const Products = () => {
                       <img
                         alt={product.title}
                         className=" object-contain object-center w-full h-full block"
-                        src={product.images[0]}
+                        src={product.image}
                       />
                     </a>
                     <div className="mt-4">
                       <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1 uppercase">
-                        {product.category.name}
+                        {product.category}
                       </h3>
                       <h2 className="text-gray-900 title-font text-lg font-medium">
                         {product.title}
